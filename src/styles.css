@@ -4,6 +4,9 @@
 
 :root {
   --primary-color: #FBFFB9;
+  --secondery-color: #FDD692;
+  --third-color: #EC7357;
+  --fourth-color: #754F44;
 }
 
 html {
@@ -15,7 +18,10 @@ html {
 }
 body {
   font-size: 1.6rem;
-  animation: fadeIn 1.5s 1.7s forwards;
+  width: 90%;
+  margin: 0 auto;
+
+  /*animation: fadeIn 1.5s 1.7s forwards;*/
 }
 
 

@@ -1,1 +1,3 @@
-<p>drivers works!</p>
+<mat-accordion>
+  <app-driver *ngFor="let driver of drivers; let i=index" [driver]="driver" [routerLink]="[driver.name]" (selectedDriver)="onDelete(i)"></app-driver>
+</mat-accordion>

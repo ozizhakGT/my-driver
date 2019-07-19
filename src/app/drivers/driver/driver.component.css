@@ -1,0 +1,25 @@
+.driver__prop {
+  width: 95%;
+  display: flex;
+  justify-content: space-between;
+}
+mat-menu {
+  display: none;
+}
+button.mat-menu-item{
+  text-align: center;
+}
+mat-list-item {
+  transition: .5s;
+  cursor: pointer;
+}
+mat-list-item:hover {
+  background-color: var(--primary-color);
+  transform: scale(1.04) translateY(-5px);
+}
+.selected-task:hover {
+  background-color: var(--third-color);
+}
+.selected-task {
+  background-color: var(--third-color);
+}
