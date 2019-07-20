@@ -11,8 +11,8 @@
     <p><b>Phone:</b> {{driver.phone}}</p>
     <button mat-raised-button color="primary" [matMenuTriggerFor]="action">Driver Action</button>
     <mat-menu #action="matMenu">
-      <button mat-menu-item (click)="onAction('edit', driver)">Edit</button>
-      <button mat-menu-item (click)="onAction('delete', driver.name)">Remove</button>
+      <button mat-menu-item (click)="onAction('edit')">Edit</button>
+      <button mat-menu-item (click)="onAction('delete')">Remove</button>
     </mat-menu>
   </div>
   <div class="driver__tasks">

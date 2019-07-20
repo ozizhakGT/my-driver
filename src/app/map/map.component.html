@@ -1,1 +1,27 @@
-<p>map works!</p>
+<agm-map *ngIf="validMap" [latitude]="driver.location.lat" [longitude]="driver.location.lng">
+  <agm-marker
+    *ngIf="validLocation"
+    [iconUrl]="'https://img.icons8.com/cotton/40/000000/bad-taxi-driver--v1.png'"
+    [latitude]="driver.location.lat"
+    [longitude]="driver.location.lng"
+    (mouseOver)="onMouseOver(driverLocation, $event)"
+    (mouseOut)="onMouseOut(driverLocation, $event)">
+    <agm-info-window #driverLocation [disableAutoPan]="false">
+      <strong>{{driver.name}} Location</strong>
+    </agm-info-window>
+  </agm-marker>
+  <div *ngIf="validLocation">
+    <agm-marker
+      #driverInfo
+      [iconUrl]="'https://img.icons8.com/dusk/30/000000/user-location.png'"
+      *ngFor="let task of driver.tasks"
+      [latitude]="task.location.lat"
+      [longitude]="task.location.lng"
+      (mouseOver)="onMouseOver(taskInfo, $event)"
+      (mouseOut)="onMouseOut(taskInfo, $event)">
+      <agm-info-window #taskInfo [disableAutoPan]="false">
+        <strong>{{task.id}} Location</strong>
+      </agm-info-window>
+    </agm-marker>
+  </div>
+</agm-map>

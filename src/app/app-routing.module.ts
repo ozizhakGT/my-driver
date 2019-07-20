@@ -7,8 +7,7 @@ import {DriversComponent} from './drivers/drivers.component';
 const routes: Routes = [
   {path: '', component: DriversComponent, pathMatch: 'full'},
   {path: ':driver', children: [
-      {path: '', component: DriverComponent},
-      {path: ':task', component: DriverComponent}
+      {path: '', component: DriverComponent}
     ]}
 ];
 

@@ -1,3 +1,8 @@
 <mat-accordion>
-  <app-driver *ngFor="let driver of drivers; let i=index" [driver]="driver" [routerLink]="[driver.name]" (selectedDriver)="onDelete(i)"></app-driver>
+  <app-driver *ngFor="let driver of drivers; let i=index"
+              [driver]="driver"
+              [routerLink]="[driver.name]"
+              (selectedDriver)="onActionSelect($event, i)"
+              (click)="onSelect(driver)"
+  ></app-driver>
 </mat-accordion>

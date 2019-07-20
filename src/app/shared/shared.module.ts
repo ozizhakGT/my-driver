@@ -1,7 +1,8 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {
   MatButtonModule,
+  MatDialogModule,
   MatDividerModule,
   MatExpansionModule,
   MatFormFieldModule,
@@ -9,8 +10,6 @@ import {
   MatListModule,
   MatMenuModule
 } from '@angular/material';
-
-
 
 
 @NgModule({
@@ -23,7 +22,8 @@ import {
     MatButtonModule,
     MatMenuModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule
   ],
   exports: [
     MatExpansionModule,
@@ -32,7 +32,9 @@ import {
     MatButtonModule,
     MatMenuModule,
     MatListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatDialogModule
   ]
 })
-export class SharedModule { }
+export class SharedModule {
+}

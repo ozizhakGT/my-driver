@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {DriversService} from '../drivers/drivers.service';
+import {Driver} from '../shared/driver.interface';
 
 @Component({
   selector: 'app-map',
@@ -6,10 +8,29 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-
-  constructor() { }
+  driver;
+  validMap = false;
+  validLocation = true;
+  constructor(private driversService: DriversService) { }
 
   ngOnInit() {
+    this.driversService.driverLocation.subscribe( driver => {
+      if (driver !== 'none') {
+      this.driver = driver;
+      this.validMap = true;
+        this.validLocation = true;
+    } else {
+        this.validLocation = false;
+      }
+    });
+  }
+
+  onMouseOver(infoWindow, $event: MouseEvent) {
+    infoWindow.open();
+  }
+
+  onMouseOut(infoWindow, $event: MouseEvent) {
+    infoWindow.close();
   }
 
 }
