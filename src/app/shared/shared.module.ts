@@ -8,7 +8,8 @@ import {
   MatFormFieldModule,
   MatInputModule,
   MatListModule,
-  MatMenuModule
+  MatMenuModule,
+  MatSnackBarModule,
 } from '@angular/material';
 
 
@@ -23,7 +24,8 @@ import {
     MatMenuModule,
     MatListModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ],
   exports: [
     MatExpansionModule,
@@ -33,7 +35,8 @@ import {
     MatMenuModule,
     MatListModule,
     MatDividerModule,
-    MatDialogModule
+    MatDialogModule,
+    MatSnackBarModule
   ]
 })
 export class SharedModule {

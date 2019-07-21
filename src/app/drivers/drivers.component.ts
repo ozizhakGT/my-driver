@@ -3,6 +3,7 @@ import {DriversService} from './drivers.service';
 import {Driver} from '../shared/driver.interface';
 import {Router} from '@angular/router';
 import {EditModalComponent} from './edit-modal/edit-modal.component';
+import {error} from 'selenium-webdriver';
 
 @Component({
   selector: 'app-drivers',
@@ -35,9 +36,13 @@ export class DriversComponent implements OnInit {
         this.driverService.deleteDriver(i, this.drivers);
         break;
       case 'edit':
-        this.driverService.onOpenEditAction(EditModalComponent, this.drivers[i]);
+        let driver = this.drivers[i];
+        this.driverService.onOpenEditAction(EditModalComponent, driver);
         this.driverService.editModal.afterClosed().subscribe(result => {
-          this.drivers[i] = Object.assign(this.drivers[i], result);
+          driver = Object.assign(driver, result);
+          this.driverService.showNotification(`${driver.name} Changes Saved Successfully`, 'success');
+        },
+        () => {this.driverService.showNotification(`${driver.name} Changes Failed Saving`, 'failed');
         });
     }
   }

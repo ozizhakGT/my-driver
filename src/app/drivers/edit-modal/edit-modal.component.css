@@ -1,3 +1,12 @@
 form > mat-form-field:not(:last-child) {
   margin-right: 1rem;
 }
+
+@media only screen and (max-width: 900px) {
+  .mat-dialog-content {
+    text-align: center;
+  }
+  form > mat-form-field {
+    width: 90%;
+  }
+}

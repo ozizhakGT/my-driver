@@ -24,6 +24,20 @@ body {
   /*animation: fadeIn 1.5s 1.7s forwards;*/
 }
 
+/*NOTIFICATION STYLES*/
+simple-snack-bar {
+  z-index: 9999;
+}
+simple-snack-bar > span {
+  font-size: 1.9rem;
+}
+.success {
+  background-color: green;
+}
+.failed {
+  background-color: red;
+}
+
 
 @keyframes fadeIn {
   0% {opacity: 0}

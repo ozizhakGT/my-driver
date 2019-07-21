@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Router} from '@angular/router';
 import {Subject} from 'rxjs';
-import {MatDialog} from '@angular/material';
+import {MatDialog, MatSnackBar} from '@angular/material';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,10 @@ export class DriversService {
   driver = new Subject();
   editModal;
 
-  constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) { }
+  constructor(private http: HttpClient,
+              private router: Router,
+              public dialog: MatDialog,
+              private notification: MatSnackBar) { }
 
   // get all drivers from server
   getDrivers() {
@@ -37,5 +40,14 @@ export class DriversService {
         width: '650px',
         data: data
       });
+  }
+
+  showNotification(text: string, method: string) {
+    this.notification.open(text, null, {
+      duration: 3500,
+      panelClass: method,
+      horizontalPosition: 'right',
+      verticalPosition: 'top'
+    });
   }
 }
