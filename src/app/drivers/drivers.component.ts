@@ -22,7 +22,7 @@ export class DriversComponent implements OnInit {
     this.driverService.getDrivers().subscribe((drivers: Driver[]) => {
       this.drivers = drivers;
       this.router.navigate([this.drivers[0].name]);
-      this.driverService.driverLocation.next(this.drivers[0]);
+      this.driverService.driver.next(this.drivers[0]);
     });
   }
 
@@ -35,14 +35,16 @@ export class DriversComponent implements OnInit {
         this.driverService.deleteDriver(i, this.drivers);
         break;
       case 'edit':
-        console.log(method);
         this.driverService.onOpenEditAction(EditModalComponent, this.drivers[i]);
+        this.driverService.editModal.afterClosed().subscribe(result => {
+          this.drivers[i] = Object.assign(this.drivers[i], result);
+        });
     }
   }
 
   // Update driverLocation Subject by select driver
   onSelect(driver) {
-    this.driverService.driverLocation.next(driver);
+    this.driverService.driver.next(driver);
   }
 
 }

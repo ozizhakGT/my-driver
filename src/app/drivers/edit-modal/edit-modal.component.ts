@@ -15,10 +15,11 @@ export class EditModalComponent implements OnInit {
 
   ngOnInit() {
     const emailValidation = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const phoneValidation = /\d-\d\d\d-\d\d\d-\d\d\d\d/;
     this.editForm = new FormGroup({
       name: new FormControl(this.data.name, [Validators.required]),
       email: new FormControl(this.data.email, [Validators.required, Validators.pattern(emailValidation)]),
-      phone: new FormControl(this.data.phone, [Validators.required]),
+      phone: new FormControl(this.data.phone, [Validators.required, Validators.pattern(phoneValidation)]),
     });
   }
 

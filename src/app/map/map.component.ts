@@ -14,7 +14,7 @@ export class MapComponent implements OnInit {
   constructor(private driversService: DriversService) { }
 
   ngOnInit() {
-    this.driversService.driverLocation.subscribe( driver => {
+    this.driversService.driver.subscribe( driver => {
       if (driver !== 'none') {
       this.driver = driver;
       this.validMap = true;

@@ -3,16 +3,19 @@
   <form [formGroup]="editForm">
     <mat-form-field>
       <input matInput placeholder="Driver Name" formControlName="name">
+      <mat-error *ngIf="!editForm.value.name.valid">Name not Valid!</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Driver Email" formControlName="email">
+      <mat-error *ngIf="!editForm.value.email.valid">Email not Valid!</mat-error>
     </mat-form-field>
     <mat-form-field>
       <input matInput placeholder="Driver Phone" formControlName="phone">
+      <mat-error *ngIf="!editForm.value.phone.valid">Phone not Valid!</mat-error>
     </mat-form-field>
   </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button (click)="onNoClick()">No Thanks</button>
-  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Ok</button>
+  <button mat-button (click)="onNoClick()">Cancel</button>
+  <button type="submit" mat-button [mat-dialog-close]="editForm.value" [disabled]="!editForm.valid" cdkFocusInitial>Save</button>
 </div>

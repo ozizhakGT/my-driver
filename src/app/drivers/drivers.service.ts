@@ -9,7 +9,8 @@ import {MatDialog} from '@angular/material';
 })
 export class DriversService {
   baseUrl = 'http://localhost:8080/assets';
-  driverLocation = new Subject();
+  driver = new Subject();
+  editModal;
 
   constructor(private http: HttpClient, private router: Router, public dialog: MatDialog) { }
 
@@ -24,20 +25,17 @@ export class DriversService {
   * navigate url one route back
   * */
   deleteDriver(i, drivers) {
-    if(confirm(`are you sur eyou want Deleting ${drivers[i].name}?`)) {
+    if(confirm(`are you sure you want Deleting ${drivers[i].name}?`)) {
       drivers.splice(i, 1).slice();
-      this.driverLocation.next('none');
+      this.driver.next('none');
       this.router.navigate(['../']);
     }
   }
 
   onOpenEditAction(component, data) {
-      const editModal = this.dialog.open(component, {
-        width: '250px',
+      this.editModal = this.dialog.open(component, {
+        width: '650px',
         data: data
-      });
-      editModal.afterClosed().subscribe(result => {
-        console.log(result);
       });
   }
 }
