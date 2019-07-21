@@ -38,7 +38,8 @@ export class DriversService {
   onOpenEditAction(component, data) {
       this.editModal = this.dialog.open(component, {
         width: '650px',
-        data: data
+        data: data,
+        disableClose: true
       });
   }
 
